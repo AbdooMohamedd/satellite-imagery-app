@@ -1,6 +1,6 @@
 # API configuration for Sentinel Hub
-CLIENT_ID = "ffca0eae-9f40-4c63-8abb-8847fe496bb3"
-CLIENT_SECRET = "2LVHK1kBTQgzZb2NoDjvMpbxGFKIDryL"
+CLIENT_ID = "get it from https://apps.sentinel-hub.com/dashboard/#/account/settings"
+CLIENT_SECRET = "get it from https://apps.sentinel-hub.com/dashboard/#/account/settings"
 API_ENDPOINT = "https://services.sentinel-hub.com/api/v1/process"
 API_KEY = CLIENT_SECRET
 INSTANCE_ID = CLIENT_ID
@@ -11,17 +11,17 @@ TOKEN_REFRESH_MARGIN = 300
 VERIFY_SSL = False
 
 # Resume settings - set to None to start fresh or specify a section to resume from
-RESUME_FROM = "section_10"  # Continue from section 10
+RESUME_FROM = None 
 
 # Sentinel Hub specific settings
 SENTINEL_DATA_COLLECTION = "sentinel-2-l2a"
 
 # Time period settings
 START_DATE = "2023-01-01"
-END_DATE = "current"  # Will be replaced with current date in code
+END_DATE = "current"  
 
 # Division settings - using section_0 as reference and moving northward
-NUM_SECTIONS = 20  # Total number of sections to create
+NUM_SECTIONS = 20  
 
 # Use 10 vertical sections (northward) and 2 horizontal (east-west)
 NUM_SECTIONS_LAT = 10  # Vertical divisions (south to north)
@@ -29,8 +29,8 @@ NUM_SECTIONS_LON = 2   # Horizontal divisions (west to east)
 
 # Reference coordinates based on section_0
 REFERENCE_SECTION = {
-    "min_lat": 31.235845,  # Southernmost point from section_0
-    "min_lon": 34.219500,  # Westernmost point from section_0
+    "min_lat": 31.235845,  
+    "min_lon": 34.219500,  
 }
 
 # Gaza Strip full boundaries (from Gaza Coordinates.txt)
@@ -42,12 +42,12 @@ GAZA_BOUNDS = {
 }
 
 # Eastern shift - pushes eastern sections (including section_10) further east
-EASTERN_COLUMN_SHIFT = 0.15  # Degree shift eastward for second column
+EASTERN_COLUMN_SHIFT = 0.15  
 
 # Image settings
-IMAGE_WIDTH = 2028  # Reduced from 2024 for better performance
-IMAGE_HEIGHT = 1024  # Square images for consistent results
-IMAGE_FORMAT = "png"  # Changed from tiff to png for better compatibility
+IMAGE_WIDTH = 2028  
+IMAGE_HEIGHT = 1024  
+IMAGE_FORMAT = "png"  
 IMAGE_MIME_TYPE = f"image/{IMAGE_FORMAT}"
 
 # View angle setting for direct overhead view
@@ -61,13 +61,13 @@ VIEW_PARAMS = {
 DATA_DIR = "../data"
 
 # Sentinel Hub specific settings
-CLOUD_COVERAGE_PERCENTAGE = 50  # Reduced to 50% for better quality images
+CLOUD_COVERAGE_PERCENTAGE = 50  
 
 # Date range extension settings based on cloud coverage
 # When cloud coverage threshold is high (>= 50%), extend search to these many days before/after
 DATE_RANGE_EXTENSION = {
-    "HIGH_CLOUD_DAYS": 3,  # Days to extend when CLOUD_COVERAGE_PERCENTAGE >= 50
-    "LOW_CLOUD_DAYS": 1    # Days to extend when CLOUD_COVERAGE_PERCENTAGE < 50
+    "HIGH_CLOUD_DAYS": 3,  
+    "LOW_CLOUD_DAYS": 1     
 }
 
 # Time of day settings - optimal lighting hours
