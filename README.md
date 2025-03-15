@@ -3,7 +3,6 @@
 This repository documents the impact of the ongoing war on the Gaza Strip through satellite imagery analysis. The application fetches and processes satellite images from January 2023 to the present, providing a structured approach for monitoring changes over time.
 
 ![Description of GIF](geza_before_after.gif)
-# ❌ THIS IS NOT SELF-DEFENSE, THIS IS GENOCIDE ❌
 
 ## Features
 
