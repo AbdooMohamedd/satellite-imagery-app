@@ -2,6 +2,8 @@
 
 This application fetches and processes satellite imagery for the Gaza Strip region from January 2023 to the current date. It divides the region into a configurable grid (by default, a 2×2 grid) and retrieves weekly snapshots for each section. The images are stored locally and can be used for further analysis or visualization.
 
+![Description of GIF](geza_before_after.gif)
+
 ## Features
 
 - **Fetch Satellite Imagery**: Retrieves daytime images from satellite providers (Sentinel-2 L2A, Sentinel-2 L1C, and Landsat-8 L1C) via the Sentinel Hub Processing API and the Planet.com API.
