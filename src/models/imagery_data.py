@@ -21,7 +21,6 @@ class ImageryData:
         }
         
         # Only include image_data if it exists and is requested
-        # Note: image_data is binary and not JSON serializable
         if hasattr(self, 'image_data') and self.image_data is not None:
             result["has_image_data"] = True
         
@@ -36,5 +35,4 @@ class ImageryData:
             metadata=data_dict["metadata"],
             section_id=data_dict.get("section_id"),
             local_path=data_dict.get("local_path")
-            # Note: image_data is not stored in JSON
         )
