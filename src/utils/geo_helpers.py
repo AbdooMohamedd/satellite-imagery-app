@@ -8,11 +8,11 @@ from shapely.geometry import Polygon, Point, box, LineString
 import math
 
 def convert_coordinates(lat, lon):
-    # Convert latitude and longitude to a different coordinate system if needed
+    """Convert latitude and longitude to a different coordinate system if needed"""
     return (lat, lon)
 
 def calculate_distance(coord1, coord2):
-    # Calculate the distance between two geographical coordinates
+    """Calculate the distance between two geographical coordinates"""
     return geodesic(coord1, coord2).kilometers
 
 def find_gaza_coordinates_file():
@@ -32,7 +32,7 @@ def find_gaza_coordinates_file():
             return loc
     
     print("WARNING: Could not find Gaza Coordinates.txt file!")
-    return "Gaza Coordinates.txt"  # Return default, which will likely fail
+    return "Gaza Coordinates.txt"  
 
 def load_gaza_borders(file_path):
     """
@@ -91,9 +91,7 @@ def create_gaza_polygon(borders):
     """
     # Combine all points to form a complete polygon
     points = []
-    
-    # For shapely, we need to create a closed loop in the right order
-    
+        
     # Start with west border (south to north)
     if borders['west']:
         print(f"Adding {len(borders['west'])} west border points")
@@ -113,7 +111,6 @@ def create_gaza_polygon(borders):
     # South border (east to west) to close the loop
     if borders['south']:
         print(f"Adding {len(borders['south'])} south border points (reversed)")
-        # Use list() to create a copy before reversing
         points.extend(list(reversed(borders['south'])))
     
     # If we have points, create a polygon
@@ -138,7 +135,7 @@ def create_gaza_polygon(borders):
             
             if not polygon.is_valid:
                 print("Warning: Created invalid polygon. Using simplified version.")
-                polygon = polygon.buffer(0)  # This tries to fix self-intersections
+                polygon = polygon.buffer(0) 
                 
             return polygon
         except Exception as e:
@@ -190,7 +187,6 @@ def divide_gaza_into_sections(num_sections=150):
     lon_span = bounds["max_lon"] - bounds["min_lon"]
     
     # Calculate a grid that gives us exactly the requested number of sections
-    # Using aspect ratio to determine rows vs columns
     aspect = lon_span / lat_span
     
     # Start with a square-ish grid
@@ -291,13 +287,10 @@ def divide_region_into_sections(min_lat, max_lat, min_lon, max_lon, num_sections
             
             # Apply eastward shift for the eastern column (j=1)
             if j == 1:
-                # Special case for section_10 (i=1, j=1)
-                if i == 1 and j == 1:  # This condition identifies section_10
-                    # Give section_10 a much more significant eastward push (3.0x the normal shift)
+                if i == 1 and j == 1:  
                     current_shift = eastern_shift * 3.0
                     print(f"INCREASED eastward shift for section_10: {current_shift} degrees")
-                elif i == 0 and j == 1:  # This would be section_1 (just south of section_10)
-                    # Also shift the section below section_10 a bit more
+                elif i == 0 and j == 1:  
                     current_shift = eastern_shift * 1.5
                     print(f"Moderate eastward shift for section_1: {current_shift} degrees")
                 else:
