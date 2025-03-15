@@ -83,7 +83,7 @@ class SatelliteService:
         """
         Fetch satellite imagery for the Gaza Strip region.
         """
-        # Use Gaza bounds from settings
+        # Use Gaza bounds from settings.py
         gaza_bounds = settings.GAZA_BOUNDS
         
         # Generate sections with eastern shift applied
