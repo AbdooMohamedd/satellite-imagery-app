@@ -33,7 +33,7 @@ REFERENCE_SECTION = {
     "min_lon": 34.219500,  
 }
 
-# Gaza Strip full boundaries (from Gaza Coordinates.txt)
+# Gaza Strip full boundaries (update it for better accuracy)
 GAZA_BOUNDS = {
     "min_lat": 31.235845,    # Southernmost point
     "max_lat": 31.594361,    # Northernmost point 
@@ -41,7 +41,7 @@ GAZA_BOUNDS = {
     "max_lon": 34.558917     # Easternmost point
 }
 
-# Eastern shift - pushes eastern sections (including section_10) further east
+# Eastern shift - pushes eastern sections to the east
 EASTERN_COLUMN_SHIFT = 0.15  
 
 # Image settings
